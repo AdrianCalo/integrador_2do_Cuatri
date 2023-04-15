@@ -1,0 +1,17 @@
+{
+  "name": "integrador",
+  "version": "1.0.0",
+  "description": "trabajo integrador GASTON, TOMAS,MILAGROS,ALEJANDRO,ADRIAN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "adrian calo",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.15.11"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
