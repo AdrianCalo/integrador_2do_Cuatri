@@ -1,0 +1,14 @@
+hola!! 
+el tema aca es que me marie y me di cuenta que no entiedo nada!. cree la clase alumnos de una forma en la que se puede sacar promedio asignarle materias al alumno y demas.
+cree la clase prof en la que puedo asignar o crear un profesor y decir que materia va a dar.
+el tema este en cuando creo el curso.. lo que intento es crear un curso y asignarle el profesor y el alumno que corresponda
+ejemplo: curso primaria (sus materias estan en el enum de primaria en la carpeta modalidades) seria crear el curso primaria 
+y que cuando me lo muestre me muestre que profesor tiene y que alumno.(tengo que ver como puedo hacer para ingregasra mas de un alumno y profesor)
+ lo que tampoco pude lograr es crear el archivo json. no se si lo tengo que crear el de alumnos en alumnos y el de profesor en profesor...
+o direcctamente en el gestor.
+lo del gestor.. ya se que esta todo mal.. meno los comentado abajo de todoXD
+
+necesitaria alguna indicaciones para esas cosas.. y ver
+
+no creo qeu se pueda hacer de la forma que yo digo.. habia creado un par de enum.. la cosa era asignarlos dependendiendo del curso.. y dps decir
+ tal profesor da materia x. no se si me explico
