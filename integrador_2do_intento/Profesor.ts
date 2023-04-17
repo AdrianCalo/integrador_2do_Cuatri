@@ -1,15 +1,15 @@
 import { Persona } from "./Persona";
-//import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 export default class Profesor extends Persona{
     //Id= uuidv4().slice(0,7);
-    contrato:number;
-    materias:{nombre:string}[]=[];
+    contrato:string;
+    materias:{nombre:string}[]=[];//creao materias como objeto
     celular:number;
     email:string;
-    constructor(nombre:string,apellido:string,dni:number,fecha_nacimiento:string,domicilio:string,contrato:number,celular:number,email:string){
+    constructor(nombre:string,apellido:string,dni:number,fecha_nacimiento:string,domicilio:string,celular:number,email:string){
         super(nombre,apellido,dni,fecha_nacimiento,domicilio);
-        this.contrato=contrato;
+        this.contrato=uuidv4().slice(0,5);
         this.celular=celular;
         this.email=email;
     }
