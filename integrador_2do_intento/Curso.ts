@@ -14,9 +14,12 @@ export default class Curso{
         this.IdCurso= uuidv4().slice(0,4)
     }
 
+    mostrarDatos(){
+        console.log(this)
+        return this;
+    }
 }
-    
-    
+   
 
 
 

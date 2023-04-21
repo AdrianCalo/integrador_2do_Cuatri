@@ -5,7 +5,8 @@ const fs= require ('fs');
 
 //import { check, leer,escribir,guardar } from "./utils";
 import readlineSync from 'readline-sync';
-import { check, guardar } from "./utils";
+//import { check, guardar } from "./utils";
+//import { read } from "fs";
 
 
 
@@ -27,88 +28,77 @@ let legajos='./DATA/legajos.json'
         this.alumnos=[];
         this.profesor=[];
         this.matricula=[];
-        //fs.writeFileSync('./legajos.json','[]')
+        
+        if(fs.existsSync('./DATA/alumno.json')){
+            console.log('archivo existente de alumnos')
+        }else{
+            fs.writeFileSync('./DATA/alumno.json','[]')
+        }
+        if(fs.existsSync('./DATA/profesor.json')){
+            console.log('archivo exitente de profesores')
+        }else{
+            fs.writeFileSync('./DATA/profesor.json','[]')
+        }
+        if(fs.existsSync('./DATA/legajos.json')){
+            console.log('archivo existente de legajos')
+        }else{
+            fs.writeFileSync('./DATA/legajos.json','[]')
+        }
     }
-
+    read(){return fs.readlineSync('./DATA/alumno.json','[]')}
+    data(){return JSON.parse(fs.readFileSync('./DATA/alumno.json','utf8'))}
+   
     //data(){return JSON.parse(fs.readFileSync('./legajos.json','utf8'))}
 
-    matricularAlumno(nombre:string, apellido:string,dni:number,domicilio:string,fecha_nacimiento:string,curso:Curso,contactoEmergencia:number){//anotarlo!! algo asi
-        let newAlumno= new Alumno(nombre,apellido,dni,domicilio,fecha_nacimiento,curso,contactoEmergencia)
+    matricularAlumno(){//anotarlo!! algo asi
+        let nombre= readlineSync.question('Ingrese nombre del alumno: ');
+        let apellido= readlineSync.question('Ingrese apellido del alumno: ');
+        let dni= Number(readlineSync.question('Ingrese DNI: '));
+        let domicilio= readlineSync.question('Ingrese domicilio del alumno: ');
+        let fecha_nacimiento= readlineSync.question('Ingrese fecha de nacimiento: ');
+        let NombreCurso=readlineSync.question(`ingrese el nombre del curso a inscribirse: `);   
+        let curso= new Curso(NombreCurso)
+        let contactoEmergencia= Number(readlineSync.question('Ingrese contacto de emergencia: '));
+        let newAlumno= new Alumno(nombre,apellido,dni,domicilio,fecha_nacimiento,curso,contactoEmergencia);
         console.log(newAlumno);
-        return newAlumno
-    }//en matricular creo al alumno y ya lo deberia guardar en el JSON
-
-    crearAlumno(nombre:string, apellido:string,dni:number,domicilio:string,fecha_nacimiento:string,curso:Curso,contactoEmergencia:number){
-        let newAlumno= new Alumno(nombre,apellido,dni,domicilio,fecha_nacimiento,curso,contactoEmergencia)
-        let pathAlumno=rutaAlumno
-        guardar(pathAlumno,newAlumno)
+        //try{
+        //    const data= fs.readFileSync('./DATA/alumno.json', "utf8");
+        //    const jsonFile= JSON.parse(data);//.parse() convierte texto a objeto
+        //    newAlumno=jsonFile.map((item:any)=>item);
+        //}catch (error){
+        //    let mensError= "no se ha podido acceder al Archivo"
+        //    fs.writeFileSync("./error.txt",mensError,"utf8")
+        //}
+        let alumnos:Alumno[]=[...this.data(),newAlumno];
+        fs.writeFileSync('./DATA/alumno.json',JSON.stringify(alumnos,null,2))
     }
 
+    //en matricular creo al alumno y ya lo deberia guardar en el JSON. luego tengo que tener una funcion para buscar el alumno en el listado
+    //y agregar las materias, usar la misma funcion para luego agregar notas! (usando las que tnego en alunnos) 
 
+    ContratarProfesor(){
+        let nombre= readlineSync.question('Ingrese nombre del profesor: ')
+        let apellido= readlineSync.question('Ingrese apellido del profesor: ')
+        let dni= Number(readlineSync.question('Ingrese DNI: '))
+        let fecha_nacimiento= readlineSync.question('Ingrese fecha de nacimiento: ')
+        let domicilio= readlineSync.question('Ingrese domicilio del profesor: ')
+        let celular= Number(readlineSync.question('Ingrese N° de telefono del profesor: '))
+        let email= readlineSync.question('Ingrese E-mail del profesor: ')
+        let newProfesor = new Profesor(nombre,apellido,dni,fecha_nacimiento,domicilio,celular,email)
+        if(newProfesor){
+            let nombreNewProfesor:string= `${nombre} ${apellido}`;
+            let materiaAsignar:string= readlineSync.question('indique la materia que dicta el profesor: ')
+            newProfesor.AsignarMateria(materiaAsignar,nombreNewProfesor);
+        }
+        console.log(newProfesor);
+        let profesores:Profesor[]=[...this.data(),newProfesor];
+        fs.writeFileSync('./DATA/profesor.json',JSON.stringify(profesores,null,2))
+        return newProfesor;
+    }
 }
 
-
-
-
-
-
-
-
-
-
-let Curso1=new Curso('1A')
-let profesor1= new Profesor('Juan Carlos','Gomez',11206640,'1954/06/29','25 de mayo 792',2281572898,'agy_calo@hotmail.com') 
-let alumno1= new Alumno('adrian','calo',35411853,'pelegrini 331','1990/10/05',Curso1,2281572898)
-//let tecnica= new GestorColegio()
-//tecnica.agregarAlumno()
-
-alumno1.mostrarDatos()
-profesor1.mostrarDatos();
-profesor1.AsignarMateria('fisica','Gomez, juan carlos')
-alumno1.agregar_materia('Fisica')
-alumno1.ingresarNotas('Fisica',8)
-
-
-
-alumno1.agregar_materia('lengua')
-alumno1.mostrarDatos()
-alumno1.agregar_materia('gimnasia')
-alumno1.ingresarNotas('gimnasia',7)
-alumno1.ingresarNotas('lengua',9)
-alumno1.PromedioNotas();
-alumno1.mostrarDatos();
-
-
-
-
-
-
-//agregarAlumno(){
-    //    let nombre= readlineSync.question('Ingrese nombre del alumno: ')
-    //    let apellido= readlineSync.question('Ingrese apellido del alumno: ')
-    //    let dni= readlineSync.question('Ingrese DNI: ')
-    //    let domicilio= readlineSync.question('Ingrese domicilio del alumno: ')
-    //    let fecha_nacimiento= readlineSync.question('Ingrese fecha de nacimiento: ')
-    //    let matriculaID= readlineSync.question('Ingrese N° de matricula: ')
-    //    let curso= readlineSync.question('Ingrese curso a realizar: ')
-    //    let contactoEmergencia= readlineSync.question('Ingrese contacto de emergencia: ')
-    //    
-    //    
-    //    let nuevoAlumno=new Alumno(nombre,apellido,Number(dni),domicilio,fecha_nacimiento,[]Curso,Number(contactoEmergencia))
-    //    
-    //    let legajo:Alumno[]=[...this.data(),nuevoAlumno]
-    //    fs.writeFileSync(rutaAlumno)
-    //    fs.writeFileSync(legajos,JSON.stringify(legajo,null,2));
-    //    
-    //}
-
-//let cruso1=new Curso('primeroA',profesor1[],alumno1[])
-//
-////console.log(alumno1.id);
-//alumno1.agregar_materia('fisica')
-//profesor1.AsignarMateria('fisica','Gomez juan Carlos');
-//alumno1.ingresarNotas('fisica',8)
-//alumno1.PromedioNotas();
-//alumno1.mostrarDatos();
-//profesor1.mostrarDatos();
+let escuela= new GestorColegio('tecnica 1');
+//escuela.matricularAlumno();
+//escuela.matricularAlumno()
+escuela.ContratarProfesor();
 
