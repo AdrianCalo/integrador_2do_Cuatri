@@ -47,6 +47,10 @@ let legajos='./DATA/legajos.json'
     }
     read(){return fs.readlineSync('./DATA/alumno.json','[]')}
     data(){return JSON.parse(fs.readFileSync('./DATA/alumno.json','utf8'))}
+
+    read1(){return fs.readlineSync('./DATA/profesor.json','[]')}
+    data1(){return JSON.parse(fs.readFileSync('./DATA/profesor.json','utf8'))}
+
    
     //data(){return JSON.parse(fs.readFileSync('./legajos.json','utf8'))}
 
@@ -91,14 +95,177 @@ let legajos='./DATA/legajos.json'
             newProfesor.AsignarMateria(materiaAsignar,nombreNewProfesor);
         }
         console.log(newProfesor);
-        let profesores:Profesor[]=[...this.data(),newProfesor];
+        let profesores:Profesor[]=[...this.data1(),newProfesor];///usar esto para acceder 
         fs.writeFileSync('./DATA/profesor.json',JSON.stringify(profesores,null,2))
         return newProfesor;
     }
+
+    buscarPersona(propiedad:any,valor:string|number){
+        let busqueda= readlineSync.question('¿Que desea buscar? Alumno= 1 ||| Profesor= 2: ');
+        if(busqueda== "1"){
+           const alumno=JSON.parse(fs.readFileSync('./DATA/alumno.json'))
+           for (let i = 0; i < alumno.length; i++) {
+            if(alumno[i][propiedad]=== valor){
+                console.log(alumno[i])}
+            }
+        }else if(busqueda== '2'){
+            const profesores=JSON.parse(fs.readFileSync('./DATA/profesor.json'))
+            for (let i  = 0; i  < profesores.length; i ++) {
+                if(profesores[i][propiedad]=== valor){
+                    console.log(profesores[i])
+                }
+            }
+        }else{
+            console.log('A ingresado un valor no valido. Intente de nuevo')
+        }
+    }
+    
+    eliminarPersona(propiedad:any,valor:string|number){
+        let busqueda= readlineSync.question('¿Que desea ELIMINAR? Alumno= 1 ||| Profesor = 2: ')
+        if(busqueda == '1'){
+            const alumno=JSON.parse(fs.readFileSync('./DATA/alumno.json'));
+            for (let i = 0; i < alumno.length; i++) {
+                if(alumno[i][propiedad]=== valor){
+                   let consulta = (readlineSync.question(`¿esta seguro que desea Eliminar a este Alumno: ${alumno[i]}?, SI / NO `)).toLocaleUpperCase();
+                    if(consulta== 'SI'){
+                        alumno.splice(i,1)
+                        console.log(`el alumno ${alumno[i]} a sido eliminado`)
+                        return alumno;
+                    }else if(consulta== 'NO'){
+                        console.log('no se a eliminado ningun alumno');
+                    }else{
+                        console.log('comando incorrecto vuelva a intentar');
+                    }
+                }
+                
+            }
+        }if(busqueda == '2'){
+            const profesor=JSON.parse(fs.readFileSync('/DATA/profesor.json'));
+            for (let i = 0; i < profesor.length; i++) {
+                if(profesor[i][propiedad]===valor){
+                    let consulta=(readlineSync.question(`¿Esta seguro que desea Eliminar a este Profesor: ${profesor[i]}?, SI / NO `)).toLocaleUpperCase();
+                    if(consulta== 'SI'){
+                        profesor.splice(i,1);
+                        console.log(`El profesor ${profesor[i]} a sido eliminado`);
+                        return profesor;
+                    }else if(consulta == 'NO'){
+                        console.log('NO se a eliminado ningun profesor');
+                    }else{
+                        console.log('comando incorrecto vuelva a intentar')
+                    }
+                }
+                
+            }
+        }
+    }
+    
 }
 
 let escuela= new GestorColegio('tecnica 1');
 //escuela.matricularAlumno();
-//escuela.matricularAlumno()
-escuela.ContratarProfesor();
+//escuela.matricularAlumno();
+//escuela.matricularAlumno();
+//escuela.matricularAlumno();
+//escuela.matricularAlumno();
+//escuela.ContratarProfesor();
+//escuela.ContratarProfesor();
+//escuela.ContratarProfesor();
+//escuela.ContratarProfesor();
 
+//escuela.buscarPersona('dni',35411853)//alumno
+escuela.buscarPersona('curso',"ingenieria civil")//alumno
+//escuela.buscarPersona('apellido','benetti')//profesor
+//escuela.buscarPersona('dni',32654987)//profesor
+//escuela.eliminarPersona('dni',41329015)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------xxxxxxxxxxxxxxxxxxx-------------------------
+       //console.log('seleccione el dato que desea buscar: ');
+    //const datosBusqueda: Array<string>=['Apellido','DNI','Curso'];
+    //const seleccionDatos= readlineSync.keyInSelect(datosBusqueda);
+    //if(datosBusqueda[seleccionDatos]===datosBusqueda[0]) return this.buscarXapellido();
+    //if(datosBusqueda[seleccionDatos]===datosBusqueda[1]) return this.buscarXdni();
+    //if(datosBusqueda[seleccionDatos]===datosBusqueda[2]) return this.buscarXcurso();
+
+    //}
+//        
+//        if(fs.existsSync('./DATA/alumno.json')){
+//            return this.data
+//    }
+//    }
+//    if(busqueda=='2'){
+//        if(fs.existsSync('./DATA/profesor.json')){
+//            return this.data1
+//        }
+//    }
+//}
+
+// buscarXdni(){
+//     const SearchDni= Number(readlineSync.question('ingrese el N° de documento a buscar: '));
+//     let foundDni= this.data().filter((numero: { dni: number; })=>numero.dni===SearchDni) 
+//     console.log(`DNI encontrado. corresponde a:${foundDni} `)
+// }
+// buscarXapellido(){
+//     const lastName= readlineSync.question('Escriba el apellido de la persona que desea buscar: ');
+//     let foundLastName= this.buscarPersona().filter((person: { apellido: string; })=> person.apellido=== lastName);
+//     console.log(`Persona encontrada: `,foundLastName);
+// }
+//
+// buscarXcurso(){
+//     const cursito=readlineSync.question('Ingrese el curso a buscar: ');
+//     let foundCurso=this.buscarPersona().filter((clase: { Curso: string; })=> clase.Curso==cursito);
+//     console.log(`Curso encontrado: `,foundCurso )
+// }
+
+
+//---------------------------------xxxxxxxxxx-----------------------------
+
+//agregarAlumno(alumno) {
+//    this.alumnos.push(alumno);
+//    fs.writeFileSync('alumnos.json', JSON.stringify(this.alumnos));
+//  }
+//
+//  agregarProfesor(profesor) {
+//    this.profesores.push(profesor);
+//    fs.writeFileSync('profesores.json', JSON.stringify(this.profesores));
+//  }
+//
+//  buscarAlumno(propiedad, valor) {
+//    const alumnos = JSON.parse(fs.readFileSync('alumnos.json'));
+//
+//    for (let i = 0; i < alumnos.length; i++) {
+//      if (alumnos[i][propiedad] === valor) {
+//        console.log(alumnos[i]);
+//      }
+//    }
+//  }
+//
+//  buscarProfesor(propiedad, valor) {
+//    const profesores = JSON.parse(fs.readFileSync('profesores.json'));
+//
+//    for (let i = 0; i < profesores.length; i++) {
+//      if (profesores[i][propiedad] === valor) {
+//        console.log(profesores[i]);
+//      }
+//    }
+//  }
+//}

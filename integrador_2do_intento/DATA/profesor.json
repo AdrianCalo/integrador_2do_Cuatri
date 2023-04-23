@@ -1,0 +1,62 @@
+[
+  {
+    "nombre": "marcelo",
+    "apellido": "benetti",
+    "dni": 23554689,
+    "fecha_nacimiento": "14/9/84",
+    "domicilio": "tandil",
+    "materias": [
+      {
+        "nombre": "programacion"
+      }
+    ],
+    "contrato": "15517",
+    "celular": 54698234,
+    "email": "ajkfksa"
+  },
+  {
+    "nombre": "javier",
+    "apellido": "lopez",
+    "dni": 32654987,
+    "fecha_nacimiento": "12/6/87",
+    "domicilio": "tandil",
+    "materias": [
+      {
+        "nombre": "matematica"
+      }
+    ],
+    "contrato": "260ab",
+    "celular": 54232687,
+    "email": "akjfa"
+  },
+  {
+    "nombre": "matias",
+    "apellido": "villalobo",
+    "dni": 34469872,
+    "fecha_nacimiento": "12/7/90",
+    "domicilio": "tandil",
+    "materias": [
+      {
+        "nombre": "ingles"
+      }
+    ],
+    "contrato": "a95ca",
+    "celular": 2244522566,
+    "email": "asjkfda"
+  },
+  {
+    "nombre": "jorge",
+    "apellido": "sardon",
+    "dni": 29658941,
+    "fecha_nacimiento": "23/9/84",
+    "domicilio": "tandil",
+    "materias": [
+      {
+        "nombre": "logica"
+      }
+    ],
+    "contrato": "197a9",
+    "celular": 2131467,
+    "email": "ada�fdaf"
+  }
+]

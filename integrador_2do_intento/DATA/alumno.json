@@ -1,0 +1,77 @@
+[
+  {
+    "nombre": "adrian",
+    "apellido": "calo",
+    "dni": 35411853,
+    "fecha_nacimiento": "pelegrini 331",
+    "domicilio": "5/10/90",
+    "id": "b2ca332",
+    "materias": [],
+    "matriculaID": "0a980",
+    "curso": {
+      "nombre": "mecanica",
+      "IdCurso": "2904"
+    },
+    "contactoEmergencia": 2281550283
+  },
+  {
+    "nombre": "naiquen",
+    "apellido": "antilef",
+    "dni": 41329015,
+    "fecha_nacimiento": "pelegrini 331",
+    "domicilio": "17/7/98",
+    "id": "1840577",
+    "materias": [],
+    "matriculaID": "612dc",
+    "curso": {
+      "nombre": "recursos humanos",
+      "IdCurso": "c71d"
+    },
+    "contactoEmergencia": 2281572898
+  },
+  {
+    "nombre": "gaston",
+    "apellido": "fauret",
+    "dni": 33510153,
+    "fecha_nacimiento": "tucuman",
+    "domicilio": "24/5/88",
+    "id": "c217030",
+    "materias": [],
+    "matriculaID": "20131",
+    "curso": {
+      "nombre": "programacion",
+      "IdCurso": "b7d7"
+    },
+    "contactoEmergencia": 2281279898
+  },
+  {
+    "nombre": "sebastian",
+    "apellido": "calo",
+    "dni": 33153510,
+    "fecha_nacimiento": "espa�a 329 chavez",
+    "domicilio": "28/4/87",
+    "id": "e10c5ea",
+    "materias": [],
+    "matriculaID": "2400d",
+    "curso": {
+      "nombre": "prof.de historia",
+      "IdCurso": "ccbf"
+    },
+    "contactoEmergencia": 2281550283
+  },
+  {
+    "nombre": "imanol",
+    "apellido": "astray",
+    "dni": 36627458,
+    "fecha_nacimiento": "roque sanz pe�a 324",
+    "domicilio": "5/02/91",
+    "id": "fb03c79",
+    "materias": [],
+    "matriculaID": "fca05",
+    "curso": {
+      "nombre": "ingenieria civil",
+      "IdCurso": "197d"
+    },
+    "contactoEmergencia": 2281572898
+  }
+]
