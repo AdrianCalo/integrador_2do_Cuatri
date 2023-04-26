@@ -58,5 +58,95 @@
     "contrato": "197a9",
     "celular": 2131467,
     "email": "ada�fdaf"
+  },
+  {
+    "nombre": "ramon",
+    "apellido": "artigas",
+    "dni": 29654456,
+    "fecha_nacimiento": "25/12/82",
+    "domicilio": "artigas 6",
+    "materias": [
+      {
+        "nombre": "filosofia"
+      },
+      {
+        "nombre": "literatura"
+      }
+    ],
+    "contrato": "98837",
+    "celular": 2281159951,
+    "email": "invento_lala@hotmail.coom"
+  },
+  {
+    "nombre": "pedro",
+    "apellido": "ramos",
+    "dni": 13295465,
+    "fecha_nacimiento": "12/3/57",
+    "domicilio": "sarmiento 65",
+    "materias": [
+      {
+        "nombre": "algebra"
+      },
+      {
+        "nombre": "analisis matematico"
+      }
+    ],
+    "contrato": "56cd0",
+    "celular": 115978645,
+    "email": "invento2@hotmail.com"
+  },
+  {
+    "nombre": "jorge",
+    "apellido": "rodriguez",
+    "dni": 13297986,
+    "fecha_nacimiento": "14/6/59",
+    "domicilio": "chacabuco 29",
+    "materias": [
+      {
+        "nombre": "ingles"
+      },
+      {
+        "nombre": "ED civica"
+      },
+      {
+        "nombre": "teoria politica"
+      }
+    ],
+    "contrato": "7c28d",
+    "celular": 2281563965,
+    "email": "jorge_rodriguez@hotmail.com"
+  },
+  {
+    "nombre": "josue",
+    "apellido": "fernandez",
+    "dni": 25369951,
+    "fecha_nacimiento": "4//3/83",
+    "domicilio": "25 de mayo 135",
+    "materias": [
+      {
+        "nombre": "neumatica"
+      },
+      {
+        "nombre": "herreria"
+      }
+    ],
+    "contrato": "e788b",
+    "celular": 2281789456,
+    "email": "josue_fernandez@gmail.com"
+  },
+  {
+    "nombre": "hernan",
+    "apellido": "blasco",
+    "dni": 23258675,
+    "fecha_nacimiento": "4/6/75",
+    "domicilio": "gral paz",
+    "materias": [
+      {
+        "nombre": "electricidad"
+      }
+    ],
+    "contrato": "be8d4",
+    "celular": 2281752269,
+    "email": "hernan_blasco@hotmail.com"
   }
 ]

@@ -14,6 +14,7 @@ export default class Alumno extends Persona {
         super(nombre,apellido,dni,domicilio,fecha_nacimiento)
         this.matriculaID=uuidv4().slice(0,5);
         this.curso=curso;
+        this.materias=[];
         this.contactoEmergencia=contactoEmergencia;
     }
 
